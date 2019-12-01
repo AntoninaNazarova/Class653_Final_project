@@ -5,7 +5,9 @@ Motivation: Computationally driven development of novel chemoselective methods
 Organometallic transformation involves an extensive framework of ODEs of reactants ([A], [P], [Z]) and active catalytic species ([A·cat], [cat], [A·cat·Z]). For detailed study of catalytic mechanism, non-equilibrium reaction rate constants and parameters are needed to be calculated – ka, k-a, kz, k-z, k2. kx ≈ [0; 5] with a discreet step 0.5 will overall require comparison of 105 solutions
 
 𝐝[𝐀]/𝐝𝐭=−𝒌_𝑨 [𝑨]([𝑷]+[𝑨]+〖𝒄𝒐𝒏𝒔𝒕〗_1 )+𝒌_(−𝑨) (−[𝑨]+[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_0)
+
 (𝒅[𝒁])/𝒅𝒕=−𝒌_𝒛 (−[𝑨]+[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_𝟎 )[𝒁]+𝒌_(−𝒛) (−[𝑷]−[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_𝟐 ) 
+
 (𝒅[𝑷])/𝒅𝒕= 𝒌_𝟐 [𝑨∙𝒄𝒂𝒕∙𝒁]=𝒌_𝟐 (−[𝑷]−[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_𝟐 )
 
 The problem: High-fidelity computing of complex catalytic reaction kinetics is time-consuming
