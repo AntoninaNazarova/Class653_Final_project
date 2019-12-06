@@ -4,18 +4,19 @@ Motivation: Computationally driven development of novel chemoselective methods
 
 Organometallic transformation involves an extensive framework of ODEs of reactants ([A], [P], [Z]) and active catalytic species ([A·cat], [cat], [A·cat·Z]). For detailed study of catalytic mechanism, non-equilibrium reaction rate constants and parameters are needed to be calculated – ka, k-a, kz, k-z, k2. kx ≈ [0; 5] with a discreet step 0.5 will overall require comparison of 105 solutions
 
-𝐝[𝐀]/𝐝𝐭=−𝒌_𝑨 [𝑨]([𝑷]+[𝑨]+〖𝒄𝒐𝒏𝒔𝒕〗_1 )+𝒌_(−𝑨) (−[𝑨]+[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_0)
+𝐝[𝐀]/𝐝𝐭=−𝒌_𝑨*[𝑨]*([𝑷]+[𝑨]+const1)+𝒌_(−𝑨)*(−[𝑨]+[𝒁]+const0)
 
-(𝒅[𝒁])/𝒅𝒕=−𝒌_𝒛 (−[𝑨]+[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_𝟎 )[𝒁]+𝒌_(−𝒛) (−[𝑷]−[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_𝟐 ) 
+𝒅[𝒁]/𝒅𝒕=−𝒌_𝒛*(−[𝑨]+[𝒁]+const0)*[𝒁]+𝒌_(−𝒛)*(−[𝑷]−[𝒁]+const2) 
 
-(𝒅[𝑷])/𝒅𝒕= 𝒌_𝟐 [𝑨∙𝒄𝒂𝒕∙𝒁]=𝒌_𝟐 (−[𝑷]−[𝒁]+〖𝒄𝒐𝒏𝒔𝒕〗_𝟐 )
+𝒅[𝑷]/𝒅𝒕= 𝒌_𝟐*[𝑨∙𝒄𝒂𝒕∙𝒁]=𝒌_𝟐*(−[𝑷]−[𝒁]+const2)
 
 The problem: High-fidelity computing of complex catalytic reaction kinetics is time-consuming
 
 An explicit and explicit integration methods are employed to solve a set of independent ODEs involving substrate-related finite rate equations. Computational challenges:
 a) Chemical stiffness (rapidly changed reactivity profile—rapidly depleting moieties, fast-timing reversible reaction steps);
 b) Large pool of catalytic cycle-involved species.
-Modern parallel computing technologies efficient and fast yet reliable analysis of the informativity of kinetic data in the mathematical interpretation of measurement results.
+
+Modern parallel computing technologies allow efficient and fast yet reliable analysis of the informativity of kinetic data in the mathematical interpretation of measurement results.
 
 What has been done before:
 Explicit integration algorithms were parallelized on multiple core CPU using MPI (or OpenMPI).
