@@ -5,9 +5,11 @@ Computationally driven chemical kinetics for mechanistic modelling of complex ca
 
 Introduction:
 Modeling description of an organometallic transformation involves an extensive framework of ordinary differential equasions (ODEs) of reactants ([A], [P], [Z]) and active catalytic species ([A·cat], [cat], [A·cat·Z]). For the copper(I)-catalysed azide-iodoalkyne cycloaddition reaction, a kinetic model can be descriped as following:
-𝐝[𝐀]/𝐝𝐭=−𝒌_𝑨*[𝑨]*([𝑷]+[𝑨]+const1)+𝒌_(−𝑨)*(−[𝑨]+[𝒁]+const0)
-𝒅[𝒁]/𝒅𝒕=−𝒌_𝒛*(−[𝑨]+[𝒁]+const0)*[𝒁]+𝒌_(−𝒛)*(−[𝑷]−[𝒁]+const2) 
-𝒅[𝑷]/𝒅𝒕= 𝒌_𝟐*[𝑨∙𝒄𝒂𝒕∙𝒁]=𝒌_𝟐*(−[𝑷]−[𝒁]+const2), where [A],[Z] and [P]- monitoring substrate concentrations; 𝒌_𝑨,𝒌_(−𝑨),𝒌_𝒛,𝒌_(−𝒛),𝒌_𝟐 - reaction kinetic parameters.
+
+𝐝[𝐀]/𝐝𝐭=−𝒌_𝑨*[𝑨]*([𝑷]+[𝑨]+const1)+𝒌_(−𝑨)*(−[𝑨]+[𝒁]+const0);
+𝒅[𝒁]/𝒅𝒕=−𝒌_𝒛*(−[𝑨]+[𝒁]+const0)*[𝒁]+𝒌_(−𝒛)*(−[𝑷]−[𝒁]+const2); 
+𝒅[𝑷]/𝒅𝒕= 𝒌_𝟐*[𝑨∙𝒄𝒂𝒕∙𝒁]=𝒌_𝟐*(−[𝑷]−[𝒁]+const2), where [A],[Z] and [P]- monitoring substrate concentrations; 𝒌_𝑨,𝒌_(−𝑨),𝒌_𝒛,𝒌_(−𝒛),𝒌_𝟐 - unknown reaction kinetic parameters.
+
 For the detailed study of emerged catalytic mechanism and for it's improvement in an industrial scale, non-equilibrium reaction rate constants and parameters are needed to be calculated – ka, k-a, kz, k-z, k2. A straighforward grid search employing a descreet step of 0.5(kx ≈ [0; 5]) in the frames of classic 4th order Runge-Kutta method has been probed for the data dense and normal volume experimental profiles. Determining of the reaction constants was gained via superimposing of the experimental profile  with the computed one (in the frames of LMS method). This approach for the inverse problem solution in chemical kinetics was directly proportional to the density of an experimental set and sometimes required more than 24 hours.
 
 The problem: 
