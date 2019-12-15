@@ -19,7 +19,7 @@ b) Large pool of catalytic cycle-involved species.
 Nowadays, modern parallel computing technologies allow efficient and fast yet reliable analysis of the informativity of kinetic data in the mathematical interpretation of measurement results.
 
 What has been done before:
-HPC kinetic simulation were successfully implemented for combustion chemistry (heavy hydrocarbons, biodiesel—more than 2000 involved species) or hydrogen/carbon monoxide or methane reduction (~53 species; 634 irreversible steps) using 5th order RKCK or 2nd order RKC methods. Explicit integration algorithms were parallelized on multiple core CPU using MPI (or OpenMPI). GPU acceleration units (CUDA) demonstrated generally several times higher performance than single or multiple-core CPU versions. However, reported understudied kinetic systems did not indicated equilibrium prosseses nor they described a cyclic processes.  
+HPC kinetic simulation were successfully implemented for combustion chemistry (heavy hydrocarbons, biodiesel—more than 2000 involved species) or hydrogen/carbon monoxide or methane reduction (~53 species; 634 irreversible steps) using 5th order RKCK or 2nd order RKC methods. Explicit integration algorithms were parallelized on multiple core CPU using MPI (or OpenMP). GPU acceleration units (CUDA) demonstrated generally several times higher performance than single or multiple-core CPU versions. However, reported understudied kinetic systems did not indicated equilibrium prosseses nor they described a cyclic processes.  
 
 
 What are we trying to achieve:
