@@ -23,6 +23,16 @@ HPC kinetic simulation were successfully implemented for combustion chemistry (h
 
 
 What we are trying to achieve:
-Study the performance of the MPI-based 4th order classic RK solver for kinetic study of nonstiff 2 substrate 2 intermediate transitional metal-catalyzed reaction mechanism. The total number of cores will be equaled the number of implemented different values of rate constants k2 - 10. The rough estimation of 5 key reactivity parameters (ka, k-a, kz, k-z, k2 ) will be derived via grid search employing LSM minimization when compared computed results (concentration profile) - with the experimental data within one core. 5 results corresponding to the min function within the one core solutions pool will be send to the MPI communicators for evaluation of the global min. Corresponding coefficients will be the most reliable kinetic constants. Initial conditions will be selected based on experimental data assuming 2% of the standard deviation error.
+Study the performance of the MPI-based 4th order classic RK solver for kinetic study of nonstiff 2 substrate 2 intermediate transitional metal-catalyzed reaction mechanism. The total number of threads will be equaled the number of implemented different values of rate constants k2 (i5 loop; i5 max = 20). The rough estimation of 20 key reactivity parameters (ka, k-a, kz, k-z- the same, k2 will be different ) will be derived. The grid search will employ LSM minimization when compared computed results (concentration profile) - with the experimental data within one core. 5 results corresponding to the min function within the one core solutions pool will be send to the MPI communicators for evaluation of the global min. Corresponding coefficients will be the most reliable kinetic constants. Initial conditions will be selected based on experimental data assuming 2% of the standard deviation error.
+Description of the code. Fifth-order Runge-Kutta method.
+The emerged system of ODEs was examined to preserve little to no stiffness, allowing solution in the form of explicit integration method of 5th order Runge-Kutta. The method embades value y(n+1) from previous y(n) in addition to the averaged sum of four previous increments, chosed depending on the slope at the midpoint of the integrated interval:
+y(n+1)=y(n)+h/6(k_1+2k_2+2k_3+k4);
+k_1=f(x(n),y(n)),
+k_2=f(x(n)+h/2,y(n)+h/2*k_1),
+k_3=f(x(n)+h/2, y(n)+h/2*k_2),
+k_4=f(x(n)+h, y(n)_h*k_3).
+The step size was declared to be 0.01 or less to increase the resolution of derived integral.
+
+
 
 
