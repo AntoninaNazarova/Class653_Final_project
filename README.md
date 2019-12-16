@@ -1,7 +1,7 @@
 # Class653_Final_project
  
 Title: 
-Computationally driven chemical kinetics for mechanistic modelling of complex catalytic reactions using OpenMPI 
+Computationally driven chemical kinetics for mechanistic modelling of complex catalytic reactions
 
 Introduction:
 Modeling description of an organometallic transformation involves an extensive framework of ordinary differential equasions (ODEs) of reactants ([A], [P], [Z]) and active catalytic species ([A·cat], [cat], [A·cat·Z]). For the copper(I)-catalysed azide-iodoalkyne cycloaddition reaction, a kinetic model can be descriped as following:
@@ -22,10 +22,11 @@ What has been done before:
 HPC kinetic simulation were successfully implemented for combustion chemistry (heavy hydrocarbons, biodiesel—more than 2000 involved species) or hydrogen/carbon monoxide or methane reduction (~53 species; 634 irreversible steps) using 5th order RKCK or 2nd order RKC methods. Explicit integration algorithms were parallelized on multiple core CPU using MPI (or OpenMP). GPU acceleration units (CUDA) demonstrated generally several times higher performance than single or multiple-core CPU versions. However, reported understudied kinetic systems did not indicated equilibrium prosseses nor they described a cyclic processes.  
 
 
-What we are trying to achieve:
-Study the performance of the MPI-based 4th order classic RK solver for kinetic study of nonstiff 2 substrate 2 intermediate transitional metal-catalyzed reaction mechanism. The total number of threads will be equaled the number of implemented different values of rate constants k2 (i5 loop; i5 max = 20). The rough estimation of 20 key reactivity parameters (ka, k-a, kz, k-z- the same, k2 will be different ) will be derived. The grid search will employ LSM minimization when compared computed results (concentration profile) - with the experimental data within one core. 5 results corresponding to the min function within the one core solutions pool will be send to the MPI communicators for evaluation of the global min. Corresponding coefficients will be the most reliable kinetic constants. Initial conditions will be selected based on experimental data assuming 2% of the standard deviation error.
+Results and discussion:
+Study the performance of the OpenMP-based grid search implementing 4th order classic RK solver for kinetic study of nonstiff 2 substrate 2 intermediate transitional metal-catalyzed reaction mechanism. The total number of threads will be equaled the number of implemented different values of rate constants ka (first i1 loop; i1 max = 12, 22).  The grid search will employ LSM minimization when compared computed results (concentration profile) - with the experimental data within one thread. Reliability of the corresponding coefficients will be verified via graphical superposition of the derived computed concentration profiles with the experimental ones. Initial conditions will be selected based on experimental data assuming 2% of the standard deviation error.
+
 Description of the code. Fifth-order Runge-Kutta method.
-The emerged system of ODEs was examined to preserve little to no stiffness, allowing solution in the form of explicit integration method of 5th order Runge-Kutta. The method embades value y(n+1) from previous y(n) in addition to the averaged sum of four previous increments, chosed depending on the slope at the midpoint of the integrated interval:
+The emerged system of ODEs was examined to preserve little to no stiffness, allowing solution in the form of the explicit integration of 5th order Runge-Kutta method. The method embades value y(n+1) from previous y(n) in addition to the averaged sum of four previous increments, chosed depending on the slope at the midpoint of the integrated interval:
 y(n+1)=y(n)+h/6(k_1+2k_2+2k_3+k4);
 k_1=f(x(n),y(n)),
 k_2=f(x(n)+h/2,y(n)+h/2*k_1),
