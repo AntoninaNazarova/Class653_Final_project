@@ -41,13 +41,13 @@ No entry	n of threads	descr. step h	computing time	LMS sum min	   rate parameter
 3           	22	          0.25	       70m.14.420s	 0.004104	      kA=2.0, k-A=0.25, kZ=5.0, k-Z=1.5, k2=0.25
 4	           22	          0.25	       70m.14.420s	 0.004103	      kA=2.75, k-A=0.25, kZ=5.0, k-Z=2.0, k2=0.25
 
-
-
-
-
-
 A							B 
- 
+
+
+
+
+
+
 C							D
 
 
